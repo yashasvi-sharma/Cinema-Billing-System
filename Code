@@ -1,0 +1,103 @@
+#include<stdio.h>
+#include <conio.h>
+
+#define BALCONY_PRICE 100.00
+#define DC_PRICE 80.00
+
+
+int main(void)
+{
+
+//	Local Declarations
+	const double taxRate = 9.00; 
+
+
+	int BALCONY_QTY;
+	int DC_QTY;
+
+	float total_BALCONY;
+	float total_DC;
+	float subTotal;
+	float tax;
+	float bill_Amount;
+	char name[250];
+	char cname[250];
+	char mode[250];
+	char card[250];
+	char upi [250];
+
+//	Statements
+
+	printf("\t===================================================\n");
+	printf("\t\tWelcome To Kapil Cinema Billing System\n");
+	printf("\t===================================================\n");
+	printf("\n Please Enter the following details to operate billing system \n\n");
+	
+	printf("Cashier's Name:  ");
+	scanf("%s",name);
+	printf("Customer's Name:  ");
+	scanf("%s",cname);
+	printf("\n");
+	printf("Enter Mode of Payment( Debit Card, Credit Card, UPI or CASH ):  ");
+	scanf("%s",mode);
+	
+
+	
+	printf("\n\t**** Enter the number of tickets  ****\n");
+
+	printf("How many BALCONY Tickets? \n");
+	scanf("%d", &BALCONY_QTY);
+
+	printf("How many DC Tickets? \n");
+	scanf("%d", &DC_QTY);
+
+	
+	printf("\n Press Any Key To Generate Bill");
+	getch();
+
+      printf("\n\n\t\t\t\t\t   Bill Generated \n\n");
+      
+    
+
+//	Calculation Statements
+
+	total_BALCONY = BALCONY_QTY * BALCONY_PRICE;
+	total_DC = DC_QTY * DC_PRICE;
+	
+	subTotal = total_BALCONY + total_DC;
+	tax = (subTotal * taxRate)/100;
+	bill_Amount = subTotal + tax;
+
+
+
+//	Printing Bills
+    printf("\n");
+    printf("\t\t\t====================================================\n");
+	printf("\t\t\t          Kapil Cinema Movie Tickets Bill\n");
+	printf("\t\t\t====================================================\n");
+	printf("\t\t\tQTY \t Description \t Unit Price\t Total Price\n");
+	printf("\t\t\t--- \t ----------- \t ---------- \t -----------\n\n");
+	printf("\t\t\t%02d \t BALCONY            %.2f       %10.2f \n", BALCONY_QTY, BALCONY_PRICE, total_BALCONY);
+	printf("\t\t\t%02d \t DC                  %.2f       %10.2f  \n", DC_QTY, DC_PRICE, total_DC);
+
+	printf("\t\t\t                                           ---------\n\n");
+	printf("\t\t\t                           SUBTOTAL       %10.2f   \n", subTotal);
+	printf("\t\t\t                           CGST           %10.2f    \n", tax);
+	printf("\t\t\t                           Total          %10.2f     \n", bill_Amount);
+	printf("\t\t\t                           Customer         %s     \n", cname);
+	printf("\t\t\t                           Cashier          %s     \n", name);
+	printf("\t\t 				   Payment Mode     %s     \n", mode);
+	printf("\t\t\t====================================================\n\n");
+	printf("\t\t\t\t\t\t Thankyou, See You Again! \n\n");
+
+
+	//main();
+	printf("\n\t\t\t\t\t\t A Mini Project by Yashasvi \n\n");
+	getch();
+	return 0;
+	
+} 
+
+
+
+
